@@ -19,27 +19,19 @@ public class GameController {
 
         List<String> carNamesList = getValidCarNames();
 
-        int tryCount = getValidateTryCount();
+        int tryCount = getValidTryCount();
 
         List<Player> players = makePlayers(carNamesList);
 
-        playRacingGame(players, tryCount);
-
-        List<Player> winners = raceService.selectWinner(players);
-
-        consoleView.printWinner(winners);
-    }
-
-    private void playRacingGame(List<Player> players, int tryCount) {
-
-        System.out.println();
-        System.out.println("실행 결과");
-
+        consoleView.printRaceResultsHeader();
         for (int i = 0; i < tryCount; i++) {
             raceService.runRace(players);
             consoleView.printRaceStatus(players);
         }
 
+        List<Player> winners = raceService.selectWinner(players);
+
+        consoleView.printWinner(winners);
     }
 
     private List<Player> makePlayers(List<String> carNamesList) {
@@ -59,7 +51,7 @@ public class GameController {
 
     }
 
-    private Integer getValidateTryCount() {
+    private Integer getValidTryCount() {
 
         String tryCountInput = consoleView.readTryCount();
         inputValidator.validateTryCount(tryCountInput);

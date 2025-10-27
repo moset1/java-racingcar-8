@@ -40,4 +40,9 @@ public class ConsoleView {
         }
         System.out.println("최종 우승자 : " + sb);
     }
+
+    public void printRaceResultsHeader() {
+        System.out.println();
+        System.out.println("실행 결과");
+    }
 }
