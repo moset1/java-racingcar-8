@@ -50,7 +50,7 @@ public class InputValidator {
         }
 
         if (name.length() > MAX_NAME_LENGTH) {
-            throw new IllegalArgumentException("자동차 이름은 " + MAX_NAME_LENGTH + "자 이하 제한입니다. : " + name );
+            throw new IllegalArgumentException("자동차 이름은 " + MAX_NAME_LENGTH + "자 이하 제한입니다. : " + name);
         }
     }
 
